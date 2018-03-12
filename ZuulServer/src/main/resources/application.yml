@@ -1,0 +1,20 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: ZULL SERVER
+zuul:
+  ignoredServices: '*'
+  routes:
+    userapi:
+      path: /userapi/**
+      service-id: USER SERVICE
+      strip-prefix: true
+    storyapi:
+      path: /atoryapi/**
+      service-id: STORY SERVICE
+      strip-prefix: true
+eureka: 
+  client: 
+    serviceUrl: 
+      defaultZone: http://localhost:8761/eureka
