@@ -1,7 +1,6 @@
 buildscript {
 	ext {
 		springBootVersion = '2.0.0.RELEASE'
-		cloudVersion = '1.4.3.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -9,10 +8,6 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
-}
-
-plugins {
-  id "org.sonarqube" version "2.6"
 }
 
 apply plugin: 'war'
@@ -36,6 +31,11 @@ repositories {
 }
 
 dependencies {
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-turbine-stream')
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-turbine')
+	//compile('org.springframework.cloud:spring-cloud-starter-consul-discovery')
+	compile('org.springframework.cloud:spring-cloud-starter-stream-rabbit')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
-	compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
 }

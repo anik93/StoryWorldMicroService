@@ -1,9 +1,8 @@
-package com.storyworld.service.user.controller;
+package com.storyworld.user.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -12,8 +11,14 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 public class UserController {
 
 	@HystrixCommand(fallbackMethod = "default1")
-	@RequestMapping(value = "/a", method = RequestMethod.GET)
+	@GetMapping("/a")
 	public ResponseEntity<String> x() {
+		return new ResponseEntity<String>("W", HttpStatus.OK);
+	}
+
+	@HystrixCommand(fallbackMethod = "default1")
+	@GetMapping("/b")
+	public ResponseEntity<String> b() {
 		try {
 			throw new Exception();
 		} catch (Exception e) {

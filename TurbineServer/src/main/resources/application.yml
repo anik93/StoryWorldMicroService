@@ -1,0 +1,23 @@
+server:
+  port: 8762
+management:
+  port: 8990
+spring:
+  application:
+    name: TURBINE SERVER
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+turbine:
+  app-config-list:
+  - USER-SERVICE
+  - STORY-SERVICE
+  #aggregator:
+    #clusterConfig: USER-SERVICE,STORY-SERVICE
+  #appConfig: user-service,story-service
+logging:
+  level:
+    root: INFO
+    com.netflix.discovery: 'OFF'
+    org.springframework.integration: DEBUG

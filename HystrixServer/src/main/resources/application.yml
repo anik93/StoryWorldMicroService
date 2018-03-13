@@ -1,9 +1,9 @@
 server:
-  port: 8082
+  port: 8763
 eureka: 
   client: 
     serviceUrl: 
       defaultZone: http://localhost:8761/eureka
 spring:
-  application:
-    name: Comment-Service
+    application:
+        name: hystrix server
